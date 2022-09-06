@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <title>Welcome to payment Gateway</title>
+    <body>
+    <form action="payment" method="POST">
+        <h3>Welcome to payment Gateway</h3>
+        <script 
+        src="//checkout.stripe.com/v2/checkout.js"
+        class="stripe-button"
+        data-key = "<%= key %>"
+        data-amount = "7000"
+        data-currency = "usd"
+        data-name = "Samson Adeboyega"
+        data-description ="Buy Node.js Complete Course"
+        data-locale = "auto">
+    </script>
+    </form>
+</body>
+</html>
