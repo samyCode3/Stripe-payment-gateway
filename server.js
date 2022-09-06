@@ -9,7 +9,7 @@ const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.set("view engine", "ejs")
-app.use("/home", (req, res) => {
+app.get("/home", (req, res) => {
    res.render('home', {
    key: PUBLISHABLE_KEY 
    })
