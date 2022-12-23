@@ -1,9 +1,8 @@
 const express = require("express");
 const app = express()
 const PORT = process.env.PORT || 3000
-const PUBLISHABLE_KEY = "pk_test_51La7SyJgAz5aZk768IBtjoEK73bsO8jbjlLxAmCjlNnz9ftSO80LGSoHEvzuGxeGIHMCuRIswAZkMhxfajQrs25v0087uWENB8"
-const SECRET_KEY = "sk_test_51La7SyJgAz5aZk76kMO1MLMM4FOj6BEptzM0pvXjDR44KXzhhJtTaZ47RnfuJQ5dwrJ0tmOHwvwgYo7CVQzCzvZW00hlGuqh8E"
-const stripe = require('stripe')(SECRET_KEY)
+require("dotenv").config()
+const stripe = require('stripe')(process.env.SECRET_KEY)
 const bodyParser = require("body-parser")
 
 app.use(bodyParser.urlencoded({extended: false}))
@@ -11,7 +10,7 @@ app.use(bodyParser.json())
 app.set("view engine", "ejs")
 app.get("/", (req, res) => {
    res.render('index', {
-   key: PUBLISHABLE_KEY 
+   key: process.env.PUBLISHABLE_KEY 
    })
 })
 app.post("/payment", (req,res) => {
